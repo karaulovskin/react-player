@@ -1,0 +1,43 @@
+.Controls {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.BtnBack {
+    transform: rotate(180deg);
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    font-size: 0;
+    background-image: url("../../images/next.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
+.BtnPlay {
+    width: 40px;
+    height: 40px;
+    margin: 0 40px;
+    padding: 0;
+    font-size: 0;
+    background-image: url("../../images/play.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
+.BtnNext {
+    width: 25px;
+    height: 25px;
+    padding: 0;
+    font-size: 0;
+    background-image: url("../../images/next.png");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    background-color: transparent;
+    border: none;
+}
