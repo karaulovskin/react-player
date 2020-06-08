@@ -1,3 +1,6 @@
 .Layout {
-
+    height: 100%;
+}
+.Layout main {
+    height: 100%;
 }

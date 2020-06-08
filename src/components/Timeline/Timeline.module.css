@@ -1,0 +1,35 @@
+.Timeline {
+    padding: 10px 0 20px;
+}
+.Timeline__Time {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.Timeline__Passed {
+
+}
+.Timeline__Duration {
+
+}
+.Timeline__Progress {
+    position: relative;
+    height: 3px;
+}
+.Timeline__ProgressBg {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 100%;
+    background-color: #333333;
+}
+.Timeline__ProgressBar {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 40%;
+    height: 100%;
+    background-color: #ff4700;
+    background-color: white;
+}
