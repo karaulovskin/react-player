@@ -1,21 +1,21 @@
 import  React, {Component} from 'react';
-import classes from './Timeline.module.css';
+import s from './Timeline.module.css';
 
 class Timeline extends Component {
     render() {
         return (
-            <div className={classes.Timeline}>
-                <div className={classes.Timeline__Time}>
-                    <div className={classes.Timeline__Passed}>
+            <div className={s.root}>
+                <div className={s.time}>
+                    <div className={s.passed}>
                         0:00
                     </div>
-                    <div className={classes.Timeline__Duration}>
+                    <div className={s.duration}>
                         6:22
                     </div>
                 </div>
-                <div className={classes.Timeline__Progress}>
-                    <div className={classes.Timeline__ProgressBg}></div>
-                    <div className={classes.Timeline__ProgressBar}></div>
+                <div className={s.progress}>
+                    <div className={s.progressBg}></div>
+                    <div className={s.progressBar}></div>
                 </div>
             </div>
         )

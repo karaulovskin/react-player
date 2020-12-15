@@ -1,22 +1,22 @@
-.Timeline {
+.root {
     padding: 10px 0 20px;
 }
-.Timeline__Time {
+.time {
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
 }
-.Timeline__Passed {
+.passed {
 
 }
-.Timeline__Duration {
+.duration {
 
 }
-.Timeline__Progress {
+.progress {
     position: relative;
     height: 3px;
 }
-.Timeline__ProgressBg {
+.progressBg {
     position: absolute;
     top: 0;
     left: 0;
@@ -24,7 +24,7 @@
     height: 100%;
     background-color: #333333;
 }
-.Timeline__ProgressBar {
+.progressBar {
     position: absolute;
     top: 0;
     left: 0;

@@ -1,4 +1,4 @@
-.Controls {
+.root {
     display: flex;
     align-items: center;
     justify-content: center;
@@ -15,6 +15,9 @@
     background-size: contain;
     background-color: transparent;
     border: none;
+}
+.BtnPlay.play {
+    background-image: url("../../images/pause.png");
 }
 .BtnBack {
     transform: rotate(180deg);
