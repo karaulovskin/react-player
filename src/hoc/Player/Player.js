@@ -1,8 +1,9 @@
 import React, {Component} from "react";
-import s from "../Player/Player.module.css";
-import track from "../Player/audio/Mathame.mp3";
 import Timeline from "../../components/Timeline/Timeline";
 import Controls from "../../components/Controls/Controls";
+
+import track from "../Player/audio/Mathame.mp3";
+import s from "../Player/Player.module.css";
 
 const audio = new Audio();
 audio.src = track;
@@ -10,6 +11,8 @@ audio.src = track;
 class Player extends Component {
     state = {
         play: false,
+        startTime: '0:00',
+        durationTime: '0:00',
     }
 
     onPlay = () => {
@@ -18,19 +21,30 @@ class Player extends Component {
                 play: !play
             }
         });
-        if (!this.state.play) {
-            audio.play();
-        } else {
-            audio.pause();
-        }
+
+        !this.state.play ? audio.play() : audio.pause();
+    }
+
+    onСalculatTime = () => {
+        const duration = audio.duration;
+        const currentTime  = audio.currentTime;
+        const elapsedTime = duration - currentTime;
+        const minuteTime = Math.floor(elapsedTime / 60);
+        const secondTime = Math.floor(elapsedTime % 60);
+        const stringTime = `${minuteTime} : ${secondTime}`;
+
+        return stringTime
     }
 
     render() {
-        const { play } = this.state;
+        const { play, startTime, durationTime } = this.state;
 
         return (
             <div className={s.root}>
-                <Timeline />
+                <Timeline
+                    startTime={startTime}
+                    durationTime={durationTime}
+                />
                 <Controls
                     play={play}
                     onPlay={this.onPlay}

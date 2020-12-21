@@ -3,14 +3,16 @@ import s from './Timeline.module.css';
 
 class Timeline extends Component {
     render() {
+        const { startTime, durationTime } = this.props;
+
         return (
             <div className={s.root}>
                 <div className={s.time}>
                     <div className={s.passed}>
-                        0:00
+                        {startTime}
                     </div>
                     <div className={s.duration}>
-                        6:22
+                        {durationTime}
                     </div>
                 </div>
                 <div className={s.progress}>
