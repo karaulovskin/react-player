@@ -1,22 +1,24 @@
 import React from 'react';
-import Layout from './hoc/Layout/Layout';
+import { BrowserRouter, Route } from 'react-router-dom';
+import Home from './Pages/Home/Home';
+import Stream from './Pages/Stream/Stream';
+import Header from './components/Header/Header';
+import Player from './components/Player/Player';
 
-function App() {
-    const titleStyle = {
-        textAlign: 'center',
-        fontSize: '14px',
-        letterSpacing: '0.2rem',
-    }
+import './App.css';
 
+const App = () => {
     return (
-        <div className="App">
-            <Layout>
-                <div style={titleStyle}
-                >
-                    NOW PLAING
+        <BrowserRouter>
+            <div className="App">
+                <Header />
+                <div>
+                    <Route path='/home' component={Home} />
+                    <Route path='/stream' component={Stream} />
                 </div>
-            </Layout>
-        </div>
+                <Player />
+            </div>
+        </BrowserRouter>
     );
 }
 

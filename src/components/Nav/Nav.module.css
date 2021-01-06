@@ -1,0 +1,16 @@
+.root {
+    color: white;
+}
+
+.root ul {
+    display: flex;
+    align-items: center;
+}
+
+.root ul li {
+    margin-right: 20px;
+}
+
+.root a {
+    color: white;
+}

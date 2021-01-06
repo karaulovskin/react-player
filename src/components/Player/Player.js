@@ -1,9 +1,9 @@
 import React, {Component} from "react";
-import Timeline from "../../components/Timeline/Timeline";
-import Controls from "../../components/Controls/Controls";
+import Timeline from "../Timeline/Timeline";
+import Controls from "../Controls/Controls";
 
-import track from "../Player/audio/Mathame.mp3";
-import s from "../Player/Player.module.css";
+import track from "./audio/Mathame.mp3";
+import s from "./Player.module.css";
 
 const audio = new Audio();
 audio.src = track;
