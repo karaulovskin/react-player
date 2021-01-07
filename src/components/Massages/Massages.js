@@ -1,14 +1,8 @@
 import React from 'react';
 
-const Massages = () => {
+const Massages = (props) => {
 
-    const data = [
-        {massage: 'Massages 1'},
-        {massage: 'Massages 2'},
-        {massage: 'Massages 3'}
-    ]
-
-    const massages = data
+    const massages = props.massage
         .map( massage => <li>{ massage.massage }</li> );
 
     return (

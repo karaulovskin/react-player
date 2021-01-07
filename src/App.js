@@ -8,7 +8,7 @@ import Player from './components/Player/Player';
 
 import './App.css';
 
-const App = () => {
+const App = (props) => {
     return (
         <BrowserRouter>
             <div className="App">
@@ -16,7 +16,7 @@ const App = () => {
                 <div>
                     <Route path='/home' component={PageHome} />
                     <Route path='/stream' component={PageStream} />
-                    <Route path='/messages' component={PageMessages} />
+                    <Route path='/messages' render={ () => <PageMessages massage={props.massage}/> } />
                 </div>
                 <Player />
             </div>

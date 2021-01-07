@@ -1,7 +1,7 @@
 import React from 'react';
 import User from "./User/User";
 
-const MassagesUser = (props) => {
+const MassagesUser = () => {
 
     const data = [
         {id: '1', name: 'MassagesUser 1'},

@@ -4,9 +4,15 @@ import './index.css';
 import App from './App';
 import * as serviceWorker from './serviceWorker';
 
+const massage = [
+    {massage: 'Massages 1'},
+    {massage: 'Massages 2'},
+    {massage: 'Massages 3'}
+]
+
 ReactDOM.render(
   <React.StrictMode>
-    <App />
+    <App massage={massage}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
