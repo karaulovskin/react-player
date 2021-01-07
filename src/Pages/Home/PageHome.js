@@ -1,11 +1,11 @@
 import React from 'react';
 
-const Stream = () => {
+const PageHome = () => {
     return (
         <div>
-            Stream
+            Home
         </div>
     )
 }
 
-export default Stream;
+export default PageHome;
