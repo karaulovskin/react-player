@@ -16,7 +16,7 @@ const App = (props) => {
                 <div>
                     <Route path='/home' component={PageHome} />
                     <Route path='/stream' component={PageStream} />
-                    <Route path='/messages' render={ () => <PageMessages massage={props.massage}/> } />
+                    <Route path='/messages' render={ () => <PageMessages state={props.state}/> } />
                 </div>
                 <Player />
             </div>

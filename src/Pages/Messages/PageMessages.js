@@ -9,7 +9,7 @@ const PageMessages = (props) => {
                 <MassagesUser />
             </div>
             <div>
-                <Massages massage={props.massage}/>
+                <Massages massage={props.state.pageMessage.massage}/>
             </div>
         </div>
     )

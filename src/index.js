@@ -2,17 +2,12 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
 import App from './App';
+import state from './redux/state';
 import * as serviceWorker from './serviceWorker';
-
-const massage = [
-    {massage: 'Massages 1'},
-    {massage: 'Massages 2'},
-    {massage: 'Massages 3'}
-]
 
 ReactDOM.render(
   <React.StrictMode>
-    <App massage={massage}/>
+    <App state={state}/>
   </React.StrictMode>,
   document.getElementById('root')
 );
