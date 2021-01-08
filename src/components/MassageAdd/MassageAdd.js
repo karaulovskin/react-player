@@ -6,13 +6,21 @@ const MassageAdd = (props) => {
     const newMassageElement = React.createRef();
 
     const addMassage = () => {
+        props.addMassage();
+    }
+
+    const onMassageChange = () => {
         const massage = newMassageElement.current.value;
-        props.addMassage(massage);
+        props.updateNewPostMassage(massage);
     }
 
     return (
         <div className={s.root}>
-            <textarea ref={ newMassageElement } />
+            <textarea
+                ref={ newMassageElement }
+                onChange={ onMassageChange }
+                value={ props.newPostMassage }
+            />
             <button onClick={ addMassage }>add</button>
         </div>
     )

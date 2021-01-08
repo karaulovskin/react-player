@@ -20,6 +20,7 @@ const App = (props) => {
                     render={ () => <PageMessages
                     state={ props.state }
                     addMassage={ props.addMassage }
+                    updateNewPostMassage={ props.updateNewPostMassage }
                     /> } />
             </div>
             <Player />
