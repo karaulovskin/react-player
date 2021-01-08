@@ -10,7 +10,7 @@ const PageMessages = (props) => {
                 <MassagesUser />
             </div>
             <div className="grid-col grid-col--6">
-                <MassageAdd />
+                <MassageAdd addMassage={ props.addMassage } />
                 <Massages massage={ props.state.pageMessage.massage }/>
             </div>
         </div>

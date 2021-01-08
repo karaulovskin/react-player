@@ -1,18 +1,18 @@
 import React from 'react';
 import s from './MassageAdd.module.css';
 
-const MassageAdd = () => {
+const MassageAdd = (props) => {
 
     const newMassageElement = React.createRef();
 
     const addMassage = () => {
         const massage = newMassageElement.current.value;
-        alert(massage);
+        props.addMassage(massage);
     }
 
     return (
         <div className={s.root}>
-            <textarea ref={ newMassageElement }></textarea>
+            <textarea ref={ newMassageElement } />
             <button onClick={ addMassage }>add</button>
         </div>
     )

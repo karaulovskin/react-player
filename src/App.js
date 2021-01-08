@@ -15,7 +15,12 @@ const App = (props) => {
             <div className="container">
                 <Route path='/home' component={ PageHome } />
                 <Route path='/stream' component={ PageStream } />
-                <Route path='/messages' render={ () => <PageMessages state={ props.state }/> } />
+                <Route
+                    path='/messages'
+                    render={ () => <PageMessages
+                    state={ props.state }
+                    addMassage={ props.addMassage }
+                    /> } />
             </div>
             <Player />
         </div>

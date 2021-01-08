@@ -3,12 +3,12 @@ import ReactDOM from 'react-dom';
 import { BrowserRouter } from "react-router-dom";
 import './index.css';
 import App from './App';
-import state from './redux/state';
+import state, { addMassage } from './redux/state';
 import * as serviceWorker from './serviceWorker';
 
 ReactDOM.render(
   <BrowserRouter>
-    <App state={ state }/>
+    <App state={ state } addMassage={ addMassage }/>
   </BrowserRouter>,
   document.getElementById('root')
 );

@@ -8,4 +8,13 @@ const state = {
     }
 }
 
+export let addMassage = (postMassage) => {
+    const newMassage = {
+        massage: postMassage
+    }
+
+    state.pageMessage.massage.push(newMassage);
+    console.log(state)
+}
+
 export default state;
