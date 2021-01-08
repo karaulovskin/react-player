@@ -21,13 +21,38 @@ html {
     height: 100vh;
     font-size: 12px;
 }
+
 body {
     width: 100%;
     height: 100%;
     color: white;
     background-color: #21292a;
 }
+
 #root {
     width: 100%;
     height: 100%;
+}
+
+ul {
+    margin: 0;
+    padding: 0;
+}
+
+li::marker {
+    content: none;
+}
+
+.container {
+    width: 1280px;
+    margin: 0 auto;
+}
+
+.grid {
+    display: flex;
+}
+
+.grid-col--6 {
+    width: 50%;
+    min-width: 50%;
 }

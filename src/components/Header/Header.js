@@ -6,7 +6,9 @@ import s from './Header.module.css';
 const Header = () => {
     return (
         <div className={s.root}>
-            <Nav />
+            <div className="container">
+                <Nav />
+            </div>
         </div>
     )
 };

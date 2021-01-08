@@ -8,7 +8,7 @@ const Massages = (props) => {
     return (
         <div>
             <ul>
-                {massages}
+                { massages }
             </ul>
         </div>
     )

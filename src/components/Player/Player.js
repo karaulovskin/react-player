@@ -41,14 +41,16 @@ class Player extends Component {
 
         return (
             <div className={s.root}>
-                <Timeline
-                    startTime={startTime}
-                    durationTime={durationTime}
-                />
-                <Controls
-                    play={play}
-                    onPlay={this.onPlay}
-                />
+                <div className="container">
+                    <Timeline
+                        startTime={startTime}
+                        durationTime={durationTime}
+                    />
+                    <Controls
+                        play={play}
+                        onPlay={this.onPlay}
+                    />
+                </div>
             </div>
         )
     }
