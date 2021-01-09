@@ -6,12 +6,17 @@ const MassageAdd = (props) => {
     const newMassageElement = React.createRef();
 
     const addMassage = () => {
-        props.addMassage();
+        const action = {type: 'ADD-MASSAGE'};
+        props.dispatch(action);
     }
 
     const onMassageChange = () => {
         const massage = newMassageElement.current.value;
-        props.updateNewPostMassage(massage);
+        const action = {
+            type: 'UPDATE-NEW-POST-MASSAGE',
+            newMassage: massage
+        };
+        props.dispatch(action);
     }
 
     return (

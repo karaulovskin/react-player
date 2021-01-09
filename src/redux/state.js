@@ -9,13 +9,18 @@ const store = {
             newPostMassage: ''
         }
     },
-    getState() {
-        return this._state;
-    },
     _callSabscriber() {
         console.log('state change');
     },
-    addMassage() {
+
+    getState() {
+        return this._state;
+    },
+    subscribe(observer) {
+        this._callSabscriber = observer;
+    },
+
+    _addMassage() {
         const newMassage = {
             massage: this._state.pageMessage.newPostMassage
         }
@@ -24,13 +29,18 @@ const store = {
         this._state.pageMessage.newPostMassage = '';
         this._callSabscriber(this._state)
     },
-    updateNewPostMassage(newMassage) {
+    _updateNewPostMassage(newMassage) {
         this._state.pageMessage.newPostMassage = newMassage;
         this._callSabscriber(this._state)
     },
-    subscribe(observer) {
-        this._callSabscriber = observer;
-    },
+
+    dispatch(action) {
+        if (action.type === 'ADD-MASSAGE') {
+            this._addMassage();
+        } else if (action.type === 'UPDATE-NEW-POST-MASSAGE') {
+            this._updateNewPostMassage(action.newMassage);
+        }
+    }
 }
 
 export default store;

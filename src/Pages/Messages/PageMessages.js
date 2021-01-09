@@ -11,9 +11,10 @@ const PageMessages = (props) => {
             </div>
             <div className="grid-col grid-col--6">
                 <MassageAdd
-                    addMassage={ props.addMassage }
-                    updateNewPostMassage={ props.updateNewPostMassage }
-                    newPostMassage={ props.state.pageMessage.newPostMassage }
+                    // addMassage={ props.addMassage }
+                    // updateNewPostMassage={ props.updateNewPostMassage }
+                    // newPostMassage={ props.state.pageMessage.newPostMassage }
+                    dispatch={ props.dispatch }
                 />
                 <Massages massage={ props.state.pageMessage.massage }/>
             </div>

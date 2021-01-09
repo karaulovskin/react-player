@@ -17,10 +17,7 @@ const App = (props) => {
                 <Route path='/stream' component={ PageStream } />
                 <Route
                     path='/messages'
-                    render={ () => <PageMessages
-                    state={ props.state }
-                    addMassage={ props.addMassage }
-                    updateNewPostMassage={ props.updateNewPostMassage }
+                    render={ () => <PageMessages state={ props.state } dispatch={ props.dispatch }
                     /> } />
             </div>
             <Player />

@@ -9,7 +9,7 @@ import * as serviceWorker from './serviceWorker';
 export const rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <App state={ state } addMassage={ store.addMassage.bind(store) } updateNewPostMassage={ store.updateNewPostMassage.bind(store) }/>
+            <App state={ state } dispatch={ store.dispatch.bind(store) }/>
         </BrowserRouter>,
         document.getElementById('root')
     );
