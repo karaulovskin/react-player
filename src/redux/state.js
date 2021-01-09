@@ -1,3 +1,6 @@
+const ADD_MASSAGE = 'ADD-MASSAGE';
+const UPDATE_NEW_POST_MASSAGE = 'UPDATE-NEW-POST-MASSAGE';
+
 const store = {
     _state: {
         pageMessage: {
@@ -35,13 +38,20 @@ const store = {
     },
 
     dispatch(action) {
-        if (action.type === 'ADD-MASSAGE') {
+        if (action.type === ADD_MASSAGE) {
             this._addMassage();
-        } else if (action.type === 'UPDATE-NEW-POST-MASSAGE') {
+        } else if (action.type === UPDATE_NEW_POST_MASSAGE) {
             this._updateNewPostMassage(action.newMassage);
         }
     }
 }
+
+export const addMassageActionCreator = () => (
+    { type: ADD_MASSAGE }
+);
+export const onMassageChangeActionCreator = (massage) => (
+    { type: UPDATE_NEW_POST_MASSAGE, newMassage: massage }
+);
 
 export default store;
 

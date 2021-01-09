@@ -1,21 +1,18 @@
 import React from 'react';
 import s from './MassageAdd.module.css';
+import {addMassageActionCreator, onMassageChangeActionCreator} from "../../redux/state";
 
 const MassageAdd = (props) => {
 
     const newMassageElement = React.createRef();
 
     const addMassage = () => {
-        const action = {type: 'ADD-MASSAGE'};
-        props.dispatch(action);
+        props.dispatch(addMassageActionCreator());
     }
 
     const onMassageChange = () => {
         const massage = newMassageElement.current.value;
-        const action = {
-            type: 'UPDATE-NEW-POST-MASSAGE',
-            newMassage: massage
-        };
+        const action = onMassageChangeActionCreator(massage);
         props.dispatch(action);
     }
 
