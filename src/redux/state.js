@@ -1,31 +1,38 @@
-import {rerenderEntireTree} from "../render";
+const store = {
+    _state: {
+        pageMessage: {
+            massage: [
+                {massage: 'Massages 1'},
+                {massage: 'Massages 2'},
+                {massage: 'Massages 3'}
+            ],
+            newPostMassage: ''
+        }
+    },
+    getState() {
+        return this._state;
+    },
+    _callSabscriber() {
+        console.log('state change');
+    },
+    addMassage() {
+        const newMassage = {
+            massage: this._state.pageMessage.newPostMassage
+        }
 
-const state = {
-    pageMessage: {
-        massage: [
-            {massage: 'Massages 1'},
-            {massage: 'Massages 2'},
-            {massage: 'Massages 3'}
-        ],
-        newPostMassage: ''
-    }
+        this._state.pageMessage.massage.push(newMassage);
+        this._state.pageMessage.newPostMassage = '';
+        this._callSabscriber(this._state)
+    },
+    updateNewPostMassage(newMassage) {
+        this._state.pageMessage.newPostMassage = newMassage;
+        this._callSabscriber(this._state)
+    },
+    subscribe(observer) {
+        this._callSabscriber = observer;
+    },
 }
 
-window.state = state;
+export default store;
 
-export let addMassage = () => {
-    const newMassage = {
-        massage: state.pageMessage.newPostMassage
-    }
-
-    state.pageMessage.massage.push(newMassage);
-    state.pageMessage.newPostMassage = '';
-    rerenderEntireTree(state)
-}
-
-export let updateNewPostMassage = (newMassage) => {
-    state.pageMessage.newPostMassage = newMassage;
-    rerenderEntireTree(state)
-}
-
-export default state;
+window.state = store.state;
