@@ -1,5 +1,4 @@
-const ADD_MASSAGE = 'ADD-MASSAGE';
-const UPDATE_NEW_POST_MASSAGE = 'UPDATE-NEW-POST-MASSAGE';
+import massageReducer from "./massageReducer";
 
 const store = {
     _state: {
@@ -15,42 +14,17 @@ const store = {
     _callSabscriber() {
         console.log('state change');
     },
-
     getState() {
         return this._state;
     },
     subscribe(observer) {
         this._callSabscriber = observer;
     },
-
-    _addMassage() {
-        const newMassage = {
-            massage: this._state.pageMessage.newPostMassage
-        }
-        this._state.pageMessage.massage.push(newMassage);
-        this._state.pageMessage.newPostMassage = '';
-        this._callSabscriber(this._state)
-    },
-    _updateNewPostMassage(newMassage) {
-        this._state.pageMessage.newPostMassage = newMassage;
-        this._callSabscriber(this._state)
-    },
-
     dispatch(action) {
-        if (action.type === ADD_MASSAGE) {
-            this._addMassage();
-        } else if (action.type === UPDATE_NEW_POST_MASSAGE) {
-            this._updateNewPostMassage(action.newMassage);
-        }
+        this._state.pageMessage = massageReducer(this._state.pageMessage, action);
+        this._callSabscriber(this._state)
     }
 }
-
-export const addMassageActionCreator = () => (
-    { type: ADD_MASSAGE }
-);
-export const onMassageChangeActionCreator = (massage) => (
-    { type: UPDATE_NEW_POST_MASSAGE, newMassage: massage }
-);
 
 export default store;
 

@@ -43,6 +43,10 @@ li::marker {
     content: none;
 }
 
+a {
+    color: white;
+}
+
 .container {
     width: 1280px;
     margin: 0 auto;

@@ -1,6 +1,6 @@
 import React from 'react';
 import s from './MassageAdd.module.css';
-import {addMassageActionCreator, onMassageChangeActionCreator} from "../../redux/state";
+import {addMassageActionCreator, onMassageChangeActionCreator} from "../../redux/massageReducer";
 
 const MassageAdd = (props) => {
     const addMassage = () => {
