@@ -3,15 +3,12 @@ import s from './MassageAdd.module.css';
 import {addMassageActionCreator, onMassageChangeActionCreator} from "../../redux/state";
 
 const MassageAdd = (props) => {
-
-    const newMassageElement = React.createRef();
-
     const addMassage = () => {
         props.dispatch(addMassageActionCreator());
     }
 
-    const onMassageChange = () => {
-        const massage = newMassageElement.current.value;
+    const onMassageChange = (e) => {
+        const massage = e.target.value;
         const action = onMassageChangeActionCreator(massage);
         props.dispatch(action);
     }
@@ -19,7 +16,6 @@ const MassageAdd = (props) => {
     return (
         <div className={s.root}>
             <textarea
-                ref={ newMassageElement }
                 onChange={ onMassageChange }
                 value={ props.newPostMassage }
             />

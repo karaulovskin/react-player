@@ -27,7 +27,6 @@ const store = {
         const newMassage = {
             massage: this._state.pageMessage.newPostMassage
         }
-
         this._state.pageMessage.massage.push(newMassage);
         this._state.pageMessage.newPostMassage = '';
         this._callSabscriber(this._state)
