@@ -17,7 +17,7 @@ const App = (props) => {
                 <Route path='/stream' component={ PageStream } />
                 <Route
                     path='/messages'
-                    render={ () => <PageMessages state={ props.state } dispatch={ props.dispatch }
+                    render={ () => <PageMessages store={ props.store }
                     /> } />
             </div>
             <Player />

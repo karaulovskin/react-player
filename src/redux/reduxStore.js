@@ -1,8 +1,8 @@
-import {combineReducers, createStore} from 'redux';
-import massageReducer from './massageReducer';
+import { combineReducers, createStore } from 'redux';
+import messageReducer from './messageReducer';
 
 let reducers = combineReducers({
-    pageMessage: massageReducer
+    pageMessage: messageReducer
 });
 
 let store = createStore(reducers);

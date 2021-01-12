@@ -1,14 +1,14 @@
-import massageReducer from "./massageReducer";
+import messageReducer from "./messageReducer";
 
 const store = {
     _state: {
         pageMessage: {
-            massage: [
-                {massage: 'Massages 1'},
-                {massage: 'Massages 2'},
-                {massage: 'Massages 3'}
+            message: [
+                {message: 'Messages 1'},
+                {message: 'Messages 2'},
+                {message: 'Messages 3'}
             ],
-            newPostMassage: ''
+            newPostMessage: ''
         }
     },
     _callSabscriber() {
@@ -21,7 +21,7 @@ const store = {
         this._callSabscriber = observer;
     },
     dispatch(action) {
-        this._state.pageMessage = massageReducer(this._state.pageMessage, action);
+        this._state.pageMessage = messageReducer(this._state.pageMessage, action);
         this._callSabscriber(this._state)
     }
 }

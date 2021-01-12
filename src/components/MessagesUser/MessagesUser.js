@@ -1,12 +1,12 @@
 import React from 'react';
 import User from "./User/User";
 
-const MassagesUser = () => {
+const MessagesUser = () => {
 
     const data = [
-        {id: '1', name: 'MassagesUser 1'},
-        {id: '2', name: 'MassagesUser 2'},
-        {id: '3', name: 'MassagesUser 3'}
+        {id: '1', name: 'MessagesUser 1'},
+        {id: '2', name: 'MessagesUser 2'},
+        {id: '3', name: 'MessagesUser 3'}
     ]
 
     const users = data
@@ -21,4 +21,4 @@ const MassagesUser = () => {
     )
 }
 
-export default MassagesUser;
+export default MessagesUser;
