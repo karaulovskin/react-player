@@ -3,6 +3,9 @@ import s from './MessageAdd.module.css';
 
 const MessageAdd = (props) => {
 
+    const messages = props.message
+        .map( message => <li>{ message.message }</li> );
+
     const onAddMessage = () => {
         props.addMessage();
     }
@@ -14,6 +17,11 @@ const MessageAdd = (props) => {
 
     return (
         <div className={s.root}>
+            <div>
+                <ul>
+                    { messages }
+                </ul>
+            </div>
             <textarea
                 onChange={ onMessageChange }
                 value={ props.newPostMessage }

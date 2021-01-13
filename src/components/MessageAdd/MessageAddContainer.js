@@ -1,26 +1,37 @@
 import React from 'react';
 import { addMessageActionCreator, messageChangeActionCreator } from "../../redux/messageReducer";
 import MessageAdd from "./MessageAdd";
+import StoreContext from "../../storeContext";
 
-const MessageAddContainer = (props) => {
-
-    const newPostMessage = props.state.pageMessage.newPostMessage;
-
-    const addMessage = () => {
-        props.store.dispatch(addMessageActionCreator());
-    }
-
-    const messageChange = (message) => {
-        const action = messageChangeActionCreator(message);
-        props.store.dispatch(action);
-    }
-
+const MessageAddContainer = () => {
     return (
-        <MessageAdd
-            addMessage={ addMessage }
-            messageChange={ messageChange }
-            newPostMessage={ newPostMessage }
-        />
+        <StoreContext.Consumer>
+            {
+                (store) => {
+                    const state = store.getState();
+                    const message = state.pageMessage.message ;
+                    const newPostMessage = state.pageMessage.newPostMessage;
+
+                    const addMessage = () => {
+                        store.dispatch(addMessageActionCreator());
+                    }
+
+                    const messageChange = (message) => {
+                        const action = messageChangeActionCreator(message);
+                        store.dispatch(action);
+                    }
+
+                    return (
+                        <MessageAdd
+                            message={ message }
+                            addMessage={ addMessage }
+                            messageChange={ messageChange }
+                            newPostMessage={ newPostMessage }
+                        />
+                    )
+                }
+            }
+        </StoreContext.Consumer>
     )
 }
 

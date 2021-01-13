@@ -8,17 +8,14 @@ import Player from './components/Player/Player';
 
 import './App.css';
 
-const App = (props) => {
+const App = () => {
     return (
         <div className="App">
             <Header />
             <div className="container">
                 <Route path='/home' component={ PageHome } />
                 <Route path='/stream' component={ PageStream } />
-                <Route
-                    path='/messages'
-                    render={ () => <PageMessages store={ props.store }
-                    /> } />
+                <Route path='/messages' component={ PageMessages } />
             </div>
             <Player />
         </div>
