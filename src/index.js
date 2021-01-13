@@ -5,14 +5,14 @@ import './index.css';
 import App from './App';
 import store from './redux/reduxStore';
 import * as serviceWorker from './serviceWorker';
-import StoreContext from "./storeContext";
+import { Provider } from "./storeContext";
 
 export const rerenderEntireTree = (state) => {
     ReactDOM.render(
         <BrowserRouter>
-            <StoreContext.Provider value={ store }>
+            <Provider store={ store }>
                 <App />
-            </StoreContext.Provider>,
+            </Provider>,
         </BrowserRouter>,
         document.getElementById('root')
     );
