@@ -1,6 +1,6 @@
 import React from 'react';
 import MessagesUser from "../../components/MessagesUser/MessagesUser";
-import MessageAddContainer from "../../components/MessageAdd/MessageAddContainer";
+import MessageContainer from "../../components/Message/MessageContainer";
 
 const PageMessages = () => {
     return (
@@ -9,7 +9,7 @@ const PageMessages = () => {
                 <MessagesUser />
             </div>
             <div className="grid-col grid-col--6">
-                <MessageAddContainer />
+                <MessageContainer />
             </div>
         </div>
     )

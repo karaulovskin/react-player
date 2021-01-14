@@ -1,8 +1,7 @@
 import React from 'react';
-import s from './MessageAdd.module.css';
+import s from './Message.module.css';
 
-const MessageAdd = (props) => {
-
+const Message = (props) => {
     const messages = props.message
         .map( message => <li>{ message.message }</li> );
 
@@ -11,6 +10,7 @@ const MessageAdd = (props) => {
     }
 
     const onMessageChange = (e) => {
+        debugger;
         const message = e.target.value;
         props.messageChange(message);
     }
@@ -31,4 +31,4 @@ const MessageAdd = (props) => {
     )
 }
 
-export default MessageAdd;
+export default Message;
