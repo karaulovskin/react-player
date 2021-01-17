@@ -5,14 +5,17 @@ import s from './Users.module.css';
 
 const Users = (props) => {
 
-    if (props.users.length === 0) {
-        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
-            props.setUsers(respons.data.items);
-        });
+    const getUsers = () => {
+        if (props.users.length === 0) {
+            axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
+                props.setUsers(respons.data.items);
+            });
+        }
     }
 
     return (
         <div className={s.root}>
+            <button onClick={ getUsers }>Get users</button>
             {
                 props.users.map((user) =>
                     <div key={ user.id } className={s.item}>
