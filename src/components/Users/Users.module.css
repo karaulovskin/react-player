@@ -1,7 +1,13 @@
 .root {
-    margin-bottom: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding-top: 50px;
 }
-.root img {
+.item {
+    text-align: center;
+}
+img {
     width: 100px;
     height: 100px;
 }

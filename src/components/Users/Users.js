@@ -1,50 +1,30 @@
 import React from 'react';
+import * as axios from 'axios';
+import avatar from '../../images/user.png';
 import s from './Users.module.css';
 
 const Users = (props) => {
 
     if (props.users.length === 0) {
-        props.setUsers([
-                {
-                    id: 1,
-                    avatarUrl: '',
-                    followed: true,
-                    fullName: 'Name 1',
-                    location: {
-                        city: 'Moscow',
-                        country: 'Russia'
-                    }
-                },
-                {
-                    id: 2,
-                    avatarUrl: '',
-                    followed: false,
-                    fullName: 'Name 2',
-                    location: {
-                        city: 'Moscow',
-                        country: 'Russia'
-                    }
-                },
-            ],
-        )
+        axios.get('https://social-network.samuraijs.com/api/1.0/users').then(respons => {
+            props.setUsers(respons.data.items);
+        });
     }
 
     return (
-        <div>
+        <div className={s.root}>
             {
                 props.users.map((user) =>
-                    <div key={ user.id } className={s.root}>
+                    <div key={ user.id } className={s.item}>
                         <div>
-                            <img src={ user.avatarUrl } alt=""/>
+                            <img
+                                src={ user.photos.small != null
+                                ? user.photos.small
+                                : avatar } alt=""
+                            />
                         </div>
                         <div>
-                            { user.fullName }
-                        </div>
-                        <div>
-                            { user.location.country }
-                        </div>
-                        <div>
-                            { user.location.city }
+                            { user.name }
                         </div>
                         <div>
                             {
