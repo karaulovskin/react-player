@@ -8,13 +8,16 @@ const Nav = () => {
         <div className={s.root}>
             <ul>
                 <li>
-                    <NavLink to="/home">Главная</NavLink>
+                    <NavLink to="/home">Home</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/stream">Стрим</NavLink>
+                    <NavLink to="/stream">Stream</NavLink>
                 </li>
                 <li>
-                    <NavLink to="/messages">Сообщения</NavLink>
+                    <NavLink to="/messages">Messages</NavLink>
+                </li>
+                <li>
+                    <NavLink to="/users">Users</NavLink>
                 </li>
             </ul>
         </div>

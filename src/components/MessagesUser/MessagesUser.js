@@ -10,7 +10,7 @@ const MessagesUser = () => {
     ]
 
     const users = data
-        .map( user => <li><User id={ user.id } name={ user.name }/></li> );
+        .map( user => <li key={ user.id }><User id={ user.id } name={ user.name }/></li> );
 
     return (
         <div>

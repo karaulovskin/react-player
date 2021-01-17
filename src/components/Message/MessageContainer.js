@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addMessageActionCreator, messageChangeActionCreator } from "../../redux/messageReducer";
+import { addMessageAC, messageChangeAC } from "../../redux/messageReducer";
 import Message from './Message';
 
 const mapStateToProps = (state) => {
@@ -13,10 +13,10 @@ const mapStateToProps = (state) => {
 const mapDispatchToProps = (dispatch) => {
     return {
         addMessage: () => {
-            dispatch(addMessageActionCreator());
+            dispatch(addMessageAC());
         },
         messageChange: (message) => {
-            const action = messageChangeActionCreator(message);
+            const action = messageChangeAC(message);
             dispatch(action);
         },
     }
