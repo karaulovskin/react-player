@@ -1,6 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { addMessageAC, messageChangeAC } from "../../redux/messageReducer";
+import { addMessage, changeMessage } from "../../redux/messageReducer";
 import Message from './Message';
 
 const mapStateToProps = (state) => {
@@ -10,19 +10,4 @@ const mapStateToProps = (state) => {
     }
 }
 
-const mapDispatchToProps = (dispatch) => {
-    return {
-        addMessage: () => {
-            dispatch(addMessageAC());
-        },
-        messageChange: (message) => {
-            const action = messageChangeAC(message);
-            dispatch(action);
-        },
-    }
-}
-
-
-const MessageContainer = connect(mapStateToProps, mapDispatchToProps)(Message);
-
-export default MessageContainer;
+export default connect(mapStateToProps, {addMessage, changeMessage})(Message);

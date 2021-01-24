@@ -32,10 +32,10 @@ const messageReducer = (state = initialState, action) => {
     }
 }
 
-export const addMessageAC = () => (
+export const addMessage = () => (
     { type: ADD_MESSAGE }
 );
-export const messageChangeAC = (message) => (
+export const changeMessage = (message) => (
     { type: UPDATE_NEW_POST_MESSAGE, newMessage: message }
 );
 

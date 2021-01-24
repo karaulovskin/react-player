@@ -60,22 +60,22 @@ const usersReducer = (state = initialState, action) => {
     }
 }
 
-export const followUsersAС = (userId) => (
+export const follow = (userId) => (
     {type: FOLLOW, userId: userId}
 );
-export const unfollowUsersAС = (userId) => (
+export const unfollow = (userId) => (
     {type: UNFOLLOW, userId: userId}
 );
-export const setUsersAС = (users) => (
+export const setUsers = (users) => (
     {type: SET_USERS, users: users}
 );
-export const setCurrentPageAС = (currentPage) => (
+export const setCurrentPage = (currentPage) => (
     {type: SET_CURRENT_PAGE, currentPage: currentPage}
 );
-export const setTotalUsersCountAС = (totalCount) => (
+export const setTotalUsersCount = (totalCount) => (
     {type: SET_TOTAL_USERS_COUNT, totalCount: totalCount}
 );
-export const toggleIsLoadingAС = (isLoading) => (
+export const toggleIsLoading = (isLoading) => (
     {type: TOGGLE_IS_LOADING, isLoading: isLoading}
 );
 

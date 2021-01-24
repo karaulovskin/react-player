@@ -9,9 +9,9 @@ const Message = (props) => {
         props.addMessage();
     }
 
-    const onMessageChange = (e) => {
+    const onChangeMessage = (e) => {
         const message = e.target.value;
-        props.messageChange(message);
+        props.changeMessage(message);
     }
 
     return (
@@ -22,7 +22,7 @@ const Message = (props) => {
                 </ul>
             </div>
             <textarea
-                onChange={ onMessageChange }
+                onChange={ onChangeMessage }
                 value={ props.newPostMessage }
             />
             <button onClick={ onAddMessage }>add</button>
