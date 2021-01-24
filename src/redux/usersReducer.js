@@ -3,12 +3,14 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
 
 let initialState = {
     users: [],
     pageCount: 10,
     currentPage: 100,
     totalUsersCount: 0,
+    isLoading: false,
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -48,6 +50,11 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 totalUsersCount: action.totalCount
             }
+        case TOGGLE_IS_LOADING:
+            return {
+                ...state,
+                isLoading: action.isLoading
+            }
         default:
             return state;
     }
@@ -67,6 +74,9 @@ export const setCurrentPageAС = (currentPage) => (
 );
 export const setTotalUsersCountAС = (totalCount) => (
     {type: SET_TOTAL_USERS_COUNT, totalCount: totalCount}
+);
+export const toggleIsLoadingAС = (isLoading) => (
+    {type: TOGGLE_IS_LOADING, isLoading: isLoading}
 );
 
 export default usersReducer;

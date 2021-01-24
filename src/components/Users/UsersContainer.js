@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as axios from 'axios';
-import { followUsersAС, unfollowUsersAС, setUsersAС, setCurrentPageAС, setTotalUsersCountAС } from '../../redux/usersReducer';
+import { followUsersAС, unfollowUsersAС, setUsersAС, setCurrentPageAС, setTotalUsersCountAС, toggleIsLoadingAС } from '../../redux/usersReducer';
 import Users from './Users';
+import Preloader from "../common/Preloader/Preloader";
 
 const mapStateToProps = (state) => {
     return {
@@ -10,9 +11,9 @@ const mapStateToProps = (state) => {
         pageCount: state.pageUsers.pageCount,
         currentPage: state.pageUsers.currentPage,
         totalUsersCount: state.pageUsers.totalUsersCount,
+        isLoading: state.pageUsers.isLoading,
     }
 }
-
 const mapDispatchToProps = (dispatch) => {
     return {
         follow: (usersId) => {
@@ -30,39 +31,46 @@ const mapDispatchToProps = (dispatch) => {
         setTotalUsersCount: (totalUsersCount) => {
             dispatch(setTotalUsersCountAС(totalUsersCount))
         },
+        toggleIsLoading: (isLoading) => {
+            dispatch(toggleIsLoadingAС(isLoading))
+        },
     }
 }
 
 class UsersContainer extends React.Component {
-
     componentDidMount() {
+        this.props.toggleIsLoading(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageCount}`)
             .then(respons => {
+                this.props.toggleIsLoading(false);
                 this.props.setUsers(respons.data.items);
                 this.props.setTotalUsersCount(respons.data.totalCount);
             });
     }
-
     onChangePage = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
-
+        this.props.toggleIsLoading(true);
         axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageCount}`)
             .then(respons => {
+                this.props.toggleIsLoading(false);
                 this.props.setUsers(respons.data.items);
             });
     }
 
     render() {
         return (
-            <Users
-                totalUsersCount={this.props.totalUsersCount}
-                pageCount={this.props.pageCount}
-                users={this.props.users}
-                follow={this.props.follow}
-                unfollow={this.props.unfollow}
-                currentPage={this.props.currentPage}
-                onChangePage={this.onChangePage}
-            />
+            <>
+                {this.props.isLoading ? <Preloader /> : null}
+                <Users
+                    totalUsersCount={this.props.totalUsersCount}
+                    pageCount={this.props.pageCount}
+                    users={this.props.users}
+                    follow={this.props.follow}
+                    unfollow={this.props.unfollow}
+                    currentPage={this.props.currentPage}
+                    onChangePage={this.onChangePage}
+                />
+            </>
         )
     }
 }
