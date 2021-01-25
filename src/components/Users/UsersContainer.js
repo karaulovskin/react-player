@@ -5,16 +5,6 @@ import { follow, unfollow, setUsers, setCurrentPage, setTotalUsersCount, toggleI
 import Users from './Users';
 import Preloader from "../common/Preloader/Preloader";
 
-const mapStateToProps = (state) => {
-    return {
-        users: state.pageUsers.users,
-        pageCount: state.pageUsers.pageCount,
-        currentPage: state.pageUsers.currentPage,
-        totalUsersCount: state.pageUsers.totalUsersCount,
-        isLoading: state.pageUsers.isLoading,
-    }
-}
-
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsLoading(true);
@@ -50,6 +40,16 @@ class UsersContainer extends React.Component {
                 />
             </>
         )
+    }
+}
+
+const mapStateToProps = (state) => {
+    return {
+        users: state.pageUsers.users,
+        pageCount: state.pageUsers.pageCount,
+        currentPage: state.pageUsers.currentPage,
+        totalUsersCount: state.pageUsers.totalUsersCount,
+        isLoading: state.pageUsers.isLoading,
     }
 }
 

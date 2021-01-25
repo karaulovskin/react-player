@@ -1,6 +1,7 @@
 import React  from 'react';
 import avatar from "../../images/user.png";
 import s from "./Users.module.css";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageCount);
@@ -17,14 +18,16 @@ const Users = (props) => {
                     return (
                         <div className={s.item} key={user.id}>
                             <div>
-                                <img
-                                    src={
-                                        user.photos.small != null
-                                            ? user.photos.small
-                                            : avatar
-                                    }
-                                    alt=""
-                                />
+                                <NavLink to={'/profile/' + user.id}>
+                                    <img
+                                        src={
+                                            user.photos.small != null
+                                                ? user.photos.small
+                                                : avatar
+                                        }
+                                        alt=""
+                                    />
+                                </NavLink>
                             </div>
                             <div>
                                 {user.name}

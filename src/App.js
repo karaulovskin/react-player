@@ -4,6 +4,7 @@ import PageHome from './Pages/Home/PageHome';
 import PageStream from './Pages/Stream/PageStream';
 import PageMessages from './Pages/Messages/PageMessages';
 import PageUser from './Pages/Users/PageUser';
+import PageProfile from "./Pages/Profile/PageProfile";
 import Header from './components/Header/Header';
 import Player from './components/Player/Player';
 
@@ -18,6 +19,7 @@ const App = () => {
                 <Route path='/stream' component={ PageStream } />
                 <Route path='/messages' component={ PageMessages } />
                 <Route path='/users' component={ PageUser } />
+                <Route path='/profile' component={ PageProfile } />
             </div>
             <Player />
         </div>
