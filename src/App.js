@@ -19,7 +19,7 @@ const App = () => {
                 <Route path='/stream' component={ PageStream } />
                 <Route path='/messages' component={ PageMessages } />
                 <Route path='/users' component={ PageUser } />
-                <Route path='/profile' component={ PageProfile } />
+                <Route path='/profile/:userId?' component={ PageProfile } />
             </div>
             <Player />
         </div>
