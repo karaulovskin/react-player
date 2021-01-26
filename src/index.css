@@ -45,6 +45,7 @@ li::marker {
 
 a {
     color: white;
+    text-decoration: none;
 }
 
 .container {
