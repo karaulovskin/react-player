@@ -4,8 +4,8 @@ import PageHome from './Pages/Home/PageHome';
 import PageStream from './Pages/Stream/PageStream';
 import PageMessages from './Pages/Messages/PageMessages';
 import PageUser from './Pages/Users/PageUser';
-import PageProfile from "./Pages/Profile/PageProfile";
-import Header from './components/Header/Header';
+import PageProfile from './Pages/Profile/PageProfile';
+import HeaderContainer from './components/Header/HeaderContainer';
 import Player from './components/Player/Player';
 
 import './App.css';
@@ -13,7 +13,7 @@ import './App.css';
 const App = () => {
     return (
         <div className="App">
-            <Header />
+            <HeaderContainer />
             <div className="container">
                 <Route path='/home' component={ PageHome } />
                 <Route path='/stream' component={ PageStream } />
