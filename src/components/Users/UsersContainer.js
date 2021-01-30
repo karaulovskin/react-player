@@ -8,20 +8,24 @@ import Preloader from "../common/Preloader/Preloader";
 class UsersContainer extends React.Component {
     componentDidMount() {
         this.props.toggleIsLoading(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageCount}`)
-            .then(respons => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${this.props.currentPage}&count=${this.props.pageCount}`, {
+            withCredentials: true,
+        })
+            .then(response => {
                 this.props.toggleIsLoading(false);
-                this.props.setUsers(respons.data.items);
-                this.props.setTotalUsersCount(respons.data.totalCount);
+                this.props.setUsers(response.data.items);
+                this.props.setTotalUsersCount(response.data.totalCount);
             });
     }
     onChangePage = (pageNumber) => {
         this.props.setCurrentPage(pageNumber);
         this.props.toggleIsLoading(true);
-        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageCount}`)
-            .then(respons => {
+        axios.get(`https://social-network.samuraijs.com/api/1.0/users?page=${pageNumber}&count=${this.props.pageCount}`, {
+            withCredentials: true,
+        })
+            .then(response => {
                 this.props.toggleIsLoading(false);
-                this.props.setUsers(respons.data.items);
+                this.props.setUsers(response.data.items);
             });
     }
 

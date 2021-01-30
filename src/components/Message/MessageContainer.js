@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import { addMessage, changeMessage } from "../../redux/messageReducer";
 import Message from './Message';
