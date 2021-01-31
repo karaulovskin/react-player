@@ -4,6 +4,7 @@ const SET_USERS = 'SET_USERS';
 const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
 const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
 const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
+const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
@@ -11,6 +12,7 @@ let initialState = {
     currentPage: 100,
     totalUsersCount: 0,
     isLoading: false,
+    followingInProgress: []
 }
 
 const usersReducer = (state = initialState, action) => {
@@ -55,6 +57,14 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 isLoading: action.isLoading
             }
+        case TOGGLE_FOLLOWING_PROGRESS:
+            return {
+                ...state,
+                followingInProgress: action.isFetching
+                    ? [...state.followingInProgress, action.userId]
+                    // eslint-disable-next-line eqeqeq
+                    : state.followingInProgress.filter(id => id !== action.userId)
+            }
         default:
             return state;
     }
@@ -77,6 +87,9 @@ export const setTotalUsersCount = (totalCount) => (
 );
 export const toggleIsLoading = (isLoading) => (
     {type: TOGGLE_IS_LOADING, isLoading: isLoading}
+);
+export const toggleFollowingProgress= (isFetching, userId) => (
+    {type: TOGGLE_FOLLOWING_PROGRESS, isFetching: isFetching, userId:userId}
 );
 
 export default usersReducer;
