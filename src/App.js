@@ -5,6 +5,7 @@ import PageStream from './Pages/Stream/PageStream';
 import PageMessages from './Pages/Messages/PageMessages';
 import PageUser from './Pages/Users/PageUser';
 import PageProfile from './Pages/Profile/PageProfile';
+import PageLogin from './Pages/Login/PageLogin';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Player from './components/Player/Player';
 
@@ -20,6 +21,7 @@ const App = () => {
                 <Route path='/messages' component={ PageMessages } />
                 <Route path='/users' component={ PageUser } />
                 <Route path='/profile/:userId?' component={ PageProfile } />
+                <Route path='/login/' component={ PageLogin } />
             </div>
             <Player />
         </div>
