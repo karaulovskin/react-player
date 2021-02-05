@@ -1,5 +1,6 @@
 import React from 'react';
 import s from './Message.module.css';
+import {Redirect} from "react-router-dom";
 
 const Message = (props) => {
     const messages = props.message
@@ -13,6 +14,8 @@ const Message = (props) => {
         const message = e.target.value;
         props.changeMessage(message);
     }
+
+    if (!props.isAuth) return <Redirect to={'/login'} />;
 
     return (
         <div className={s.root}>

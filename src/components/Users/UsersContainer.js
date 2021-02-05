@@ -27,6 +27,7 @@ class UsersContainer extends React.Component {
                     currentPage={this.props.currentPage}
                     onChangePage={this.onChangePage}
                     followingInProgress={this.props.followingInProgress}
+                    isAuth={this.props.isAuth}
                 />
             </>
         )
@@ -40,7 +41,8 @@ const mapStateToProps = (state) => {
         currentPage: state.pageUsers.currentPage,
         totalUsersCount: state.pageUsers.totalUsersCount,
         isLoading: state.pageUsers.isLoading,
-        followingInProgress: state.pageUsers.followingInProgress
+        followingInProgress: state.pageUsers.followingInProgress,
+        isAuth: state.auth.isAuth,
     }
 }
 
