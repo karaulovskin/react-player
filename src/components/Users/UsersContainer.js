@@ -1,8 +1,9 @@
 import React from "react";
-import { connect } from "react-redux";
-import { setCurrentPage, toggleFollowingProgress, getUsersThankCreator, followThankCreator, unfollowThankCreator } from "../../redux/usersReducer";
+import {connect} from "react-redux";
+import {setCurrentPage, toggleFollowingProgress, getUsersThankCreator, followThankCreator, unfollowThankCreator} from "../../redux/usersReducer";
 import Users from "./Users";
 import Preloader from "../common/Preloader/Preloader";
+import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 
 class UsersContainer extends React.Component {
     componentDidMount() {
@@ -34,6 +35,8 @@ class UsersContainer extends React.Component {
     }
 }
 
+const AuthRedirectComponent = withAuthRedirect(UsersContainer);
+
 const mapStateToProps = (state) => {
     return {
         users: state.pageUsers.users,
@@ -42,7 +45,6 @@ const mapStateToProps = (state) => {
         totalUsersCount: state.pageUsers.totalUsersCount,
         isLoading: state.pageUsers.isLoading,
         followingInProgress: state.pageUsers.followingInProgress,
-        isAuth: state.auth.isAuth,
     }
 }
 
@@ -52,4 +54,4 @@ export default connect(mapStateToProps, {
     setCurrentPage,
     toggleFollowingProgress,
     getUsers: getUsersThankCreator
-})(UsersContainer);
+})(AuthRedirectComponent);

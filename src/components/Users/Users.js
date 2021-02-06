@@ -11,8 +11,6 @@ const Users = (props) => {
         pages.push(i);
     }
 
-    if (!props.isAuth) return <Redirect to={'/login'} />;
-
     return (
         <div className={s.root}>
             <div className={s.list}>
