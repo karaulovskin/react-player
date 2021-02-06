@@ -1,4 +1,5 @@
 import React from "react";
+import {compose} from "redux";
 import {connect} from "react-redux";
 import {setCurrentPage, toggleFollowingProgress, getUsersThankCreator, followThankCreator, unfollowThankCreator} from "../../redux/usersReducer";
 import Users from "./Users";
@@ -35,8 +36,6 @@ class UsersContainer extends React.Component {
     }
 }
 
-const AuthRedirectComponent = withAuthRedirect(UsersContainer);
-
 const mapStateToProps = (state) => {
     return {
         users: state.pageUsers.users,
@@ -48,10 +47,13 @@ const mapStateToProps = (state) => {
     }
 }
 
-export default connect(mapStateToProps, {
-    follow: followThankCreator,
-    unfollow: unfollowThankCreator,
-    setCurrentPage,
-    toggleFollowingProgress,
-    getUsers: getUsersThankCreator
-})(AuthRedirectComponent);
+export default compose(
+    connect(mapStateToProps, {
+        follow: followThankCreator,
+        unfollow: unfollowThankCreator,
+        setCurrentPage,
+        toggleFollowingProgress,
+        getUsers: getUsersThankCreator
+    }),
+    withAuthRedirect
+)(UsersContainer)
