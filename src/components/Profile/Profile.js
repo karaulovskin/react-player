@@ -24,7 +24,10 @@ const Profile = (props) => {
             <div className={s.name}>
                 {props.profile.fullName}
             </div>
-            <ProfileStatus status='Status!!!'/>
+            <ProfileStatus
+                status={props.status}
+                updateUserStatus={props.updateUserStatus}
+            />
         </div>
     )
 }
