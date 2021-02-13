@@ -6,7 +6,6 @@ import {withAuthRedirect} from "../../hoc/withAuthRedirect";
 import Message from "./Message";
 
 const mapStateToProps = (state) => {
-
     return {
         message: state.pageMessage.message,
         newPostMessage: state.pageMessage.newPostMessage,
