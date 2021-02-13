@@ -1,27 +1,7 @@
-import React from 'react';
+import React from "react";
 import {Field, reduxForm} from "redux-form";
-
-const LoginForm = (props) => {
-    return (
-        <form onSubmit={props.handleSubmit}>
-            <div className="">
-                <Field name="login" component="input" placeholder="login" />
-            </div>
-            <div className="">
-                <Field name="password" component="input" placeholder="password"/>
-            </div>
-            <div className="">
-                <Field name="rememberMe" component="input" type="checkbox"/>
-                <span>remember me</span>
-            </div>
-            <div className="">
-                <button>Login</button>
-            </div>
-        </form>
-    )
-}
-
-const LoginReducerForm = reduxForm({form: 'login'})(LoginForm)
+import {Input} from "../../components/common/FormControls/FormControls";
+import {required} from "../../utils/validators/validators";
 
 const PageLogin = (props) => {
     const onSubmit = (formData) => {
@@ -35,5 +15,27 @@ const PageLogin = (props) => {
         </div>
     )
 }
+
+const LoginForm = (props) => {
+    return (
+        <form onSubmit={props.handleSubmit}>
+            <div className="">
+                <Field name="login" component={Input} placeholder="Iogin" validate={[required]}/>
+            </div>
+            <div className="">
+                <Field name="password" component={Input} placeholder="password" validate={[required]}/>
+            </div>
+            <div className="">
+                <Field name="rememberMe" component={Input} type="checkbox"/>
+                <span>remember me</span>
+            </div>
+            <div className="">
+                <button>Login</button>
+            </div>
+        </form>
+    )
+}
+
+const LoginReducerForm = reduxForm({form: 'login'})(LoginForm)
 
 export default PageLogin;
