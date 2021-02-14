@@ -1,7 +1,7 @@
 import React  from 'react';
 import avatar from "../../images/user.png";
 import s from "./Users.module.css";
-import {NavLink, Redirect} from "react-router-dom";
+import {NavLink} from "react-router-dom";
 
 const Users = (props) => {
     const pagesCount = Math.ceil(props.totalUsersCount / props.pageCount);
