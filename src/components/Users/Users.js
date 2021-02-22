@@ -1,20 +1,14 @@
 import React  from 'react';
 import avatar from "../../images/user.png";
-import s from "./Users.module.css";
 import {NavLink} from "react-router-dom";
+import Paginator from "../common/Paginator/Paginator";
+import s from "./Users.module.scss";
 
-const Users = (props) => {
-    const pagesCount = Math.ceil(props.totalUsersCount / props.pageCount);
-    const pages = [];
-
-    for (let i=1; i <= pagesCount; i++ ) {
-        pages.push(i);
-    }
-
+const Users = ({ totalUsersCount, pageCount, currentPage, onChangePage, users,  ...props}) => {
     return (
         <div className={s.root}>
             <div className={s.list}>
-                { props.users.map( (user) => {
+                { users.map( (user) => {
                     return (
                         <div className={s.item} key={ user.id }>
                             <div>
@@ -45,19 +39,12 @@ const Users = (props) => {
                 }) }
             </div>
 
-            <div className={s.pagination}>
-                { pages.map( page => {
-                    return (
-                        <span
-                            key={ page }
-                            className={ props.currentPage === page && s.activePage }
-                            onClick={ () => { props.onChangePage(page) }}
-                        >
-                            {page}
-                        </span>
-                    )
-                }) }
-            </div>
+            <Paginator
+                onChangePage={onChangePage}
+                currentPage={currentPage}
+                totalUsersCount={totalUsersCount}
+                pageCount={pageCount}
+            />
         </div>
     )
 }
