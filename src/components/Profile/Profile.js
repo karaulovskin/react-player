@@ -4,9 +4,9 @@ import ProfileStatusWithHooks from "./ProfileStatus/ProfileStatusWithHooks";
 import avatar from "../../images/user.png";
 import s from "./Profile.module.scss"
 
-const Profile = (props) => {
+const Profile = ({profile, status, updateUserStatus}) => {
 
-    if (!props.profile) {
+    if (!profile) {
         return <Preloader />
     }
 
@@ -14,19 +14,19 @@ const Profile = (props) => {
         <div className={s.root}>
             <div className={s.avatar}>
                 <picture>
-                    <img src={props.profile.photos.large != null
-                        ? props.profile.photos.large
+                    <img src={profile.photos.large != null
+                        ? profile.photos.large
                         : avatar}
                          alt=""
                     />
                 </picture>
             </div>
             <div className={s.name}>
-                {props.profile.fullName}
+                {profile.fullName}
             </div>
             <ProfileStatusWithHooks
-                status={props.status}
-                updateUserStatus={props.updateUserStatus}
+                status={status}
+                updateUserStatus={updateUserStatus}
             />
         </div>
     )

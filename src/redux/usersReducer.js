@@ -1,12 +1,12 @@
 import {userAPI} from "../api/api";
 
-const FOLLOW = 'FOLLOW';
-const UNFOLLOW = 'UNFOLLOW';
-const SET_USERS = 'SET_USERS';
-const SET_CURRENT_PAGE = 'SET_CURRENT_PAGE';
-const SET_TOTAL_USERS_COUNT = 'SET_TOTAL_USERS_COUNT';
-const TOGGLE_IS_LOADING = 'TOGGLE_IS_LOADING';
-const TOGGLE_FOLLOWING_PROGRESS = 'TOGGLE_FOLLOWING_PROGRESS';
+const FOLLOW = 'users/FOLLOW';
+const UNFOLLOW = 'users/UNFOLLOW';
+const SET_USERS = 'users/SET_USERS';
+const SET_CURRENT_PAGE = 'users/SET_CURRENT_PAGE';
+const SET_TOTAL_USERS_COUNT = 'users/SET_TOTAL_USERS_COUNT';
+const TOGGLE_IS_LOADING = 'users/TOGGLE_IS_LOADING';
+const TOGGLE_FOLLOWING_PROGRESS = 'users/TOGGLE_FOLLOWING_PROGRESS';
 
 let initialState = {
     users: [],
@@ -64,7 +64,6 @@ const usersReducer = (state = initialState, action) => {
                 ...state,
                 followingInProgress: action.isFetching
                     ? [...state.followingInProgress, action.userId]
-                    // eslint-disable-next-line eqeqeq
                     : state.followingInProgress.filter(id => id !== action.userId)
             }
         default:
@@ -95,7 +94,7 @@ export const toggleFollowingProgress= (isFetching, userId) => (
 );
 
 export const getUsersThankCreator = (page, pageCount) => {
-    return  (dispatch) => {
+    return (dispatch) => {
         dispatch(toggleIsLoading(true));
         userAPI.getUser(page, pageCount)
             .then(data => {
@@ -106,7 +105,7 @@ export const getUsersThankCreator = (page, pageCount) => {
     }
 }
 export const followThankCreator = (userId) => {
-    return  (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
         userAPI.follow(userId)
             .then(data => {
@@ -118,7 +117,7 @@ export const followThankCreator = (userId) => {
     }
 }
 export const unfollowThankCreator = (userId) => {
-    return  (dispatch) => {
+    return async (dispatch) => {
         dispatch(toggleFollowingProgress(true, userId));
         userAPI.unfollow(userId)
             .then(data => {

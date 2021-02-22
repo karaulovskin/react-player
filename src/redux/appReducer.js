@@ -1,8 +1,6 @@
-import {authAPI} from "../api/api";
-import {stopSubmit} from "redux-form";
 import {getAuthData} from "./authReducer";
 
-const SET_INITIALIZED_SUCCESS = 'SET_INITIALIZED_SUCCESS';
+const SET_INITIALIZED_SUCCESS = 'app/SET_INITIALIZED_SUCCESS';
 
 let initialState = {
     initialized: false,

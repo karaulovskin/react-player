@@ -7,10 +7,9 @@ import {required} from "../../utils/validators/validators";
 import {login} from "../../redux/authReducer";
 import s from "../../components/common/FormControls/FormControls.module.scss";
 
-const LoginForm = (props) => {
-    console.log(props);
+const LoginForm = ({handleSubmit, error}) => {
     return (
-        <form onSubmit={props.handleSubmit}>
+        <form onSubmit={handleSubmit}>
             <div className="">
                 <Field name="email" component={Input} placeholder="login" validate={[required]}/>
             </div>
@@ -22,7 +21,7 @@ const LoginForm = (props) => {
                 <span>remember me</span>
             </div>
             {
-                props.error && <div className={s.FormError}>{props.error}</div>
+                error && <div className={s.FormError}>{error}</div>
             }
             <div className="">
                 <button>Login</button>

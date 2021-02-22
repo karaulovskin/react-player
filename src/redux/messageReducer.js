@@ -1,4 +1,4 @@
-const ADD_MESSAGE = 'ADD_MESSAGE';
+const ADD_MESSAGE = 'message/ADD_MESSAGE';
 
 let initialState = {
     message: [
