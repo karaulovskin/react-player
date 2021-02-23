@@ -1,7 +1,7 @@
 import messageReducer, {addMessage} from "./messageReducer";
 
 
-if ('length of message should be incremented', () => {
+it ('length of message should be incremented', () => {
     // 1. test data
     let state = {
         message: [

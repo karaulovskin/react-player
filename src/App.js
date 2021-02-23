@@ -1,7 +1,7 @@
 import React from 'react';
 import {compose} from "redux";
-import {connect} from "react-redux";
-import { Route, withRouter  } from 'react-router-dom';
+import {connect, Provider} from "react-redux";
+import {BrowserRouter, Route, withRouter} from 'react-router-dom';
 import {initializeApp} from "./redux/appReducer";
 import PageHome from './Pages/Home/PageHome';
 import PageStream from './Pages/Stream/PageStream';
@@ -11,8 +11,9 @@ import PageProfile from './Pages/Profile/PageProfile';
 import PageLogin from './Pages/Login/PageLogin';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Player from './components/Player/Player';
-import './App.css';
 import Preloader from "./components/common/Preloader/Preloader";
+import store from "./redux/reduxStore";
+import './App.css';
 
 class App extends React.Component {
     componentDidMount() {
@@ -44,6 +45,18 @@ const mapStateToProps = (state) => ({
     initialized: state.app.initialized,
 })
 
-export default compose(
+const AppContainer = compose(
     withRouter,
     connect(mapStateToProps, {initializeApp}))(App)
+
+const AppMain = (props) => {
+    return (
+        <BrowserRouter>
+            <Provider store={ store }>
+                <AppContainer />
+            </Provider>,
+        </BrowserRouter>
+    )
+}
+
+export default AppMain;
