@@ -1,19 +1,21 @@
 import React from 'react';
 import {compose} from "redux";
+import store from "./redux/reduxStore";
 import {connect, Provider} from "react-redux";
 import {BrowserRouter, Route, withRouter} from 'react-router-dom';
 import {initializeApp} from "./redux/appReducer";
 import PageHome from './Pages/Home/PageHome';
 import PageStream from './Pages/Stream/PageStream';
-import PageMessages from './Pages/Messages/PageMessages';
 import PageUser from './Pages/Users/PageUser';
 import PageProfile from './Pages/Profile/PageProfile';
 import PageLogin from './Pages/Login/PageLogin';
 import HeaderContainer from './components/Header/HeaderContainer';
 import Player from './components/Player/Player';
 import Preloader from "./components/common/Preloader/Preloader";
-import store from "./redux/reduxStore";
+import {withSuspense} from "./hoc/withSuspense";
 import './App.css';
+
+const PageMessages = React.lazy(() => import("./Pages/Messages/PageMessages"));
 
 class App extends React.Component {
     componentDidMount() {
@@ -30,7 +32,7 @@ class App extends React.Component {
                 <div className="container">
                     <Route path='/home' component={PageHome}/>
                     <Route path='/stream' component={PageStream}/>
-                    <Route path='/messages' component={PageMessages}/>
+                    <Route path='/messages' render={withSuspense(PageMessages)} />
                     <Route path='/users' component={PageUser}/>
                     <Route path='/profile/:userId?' component={PageProfile}/>
                     <Route path='/login/' component={PageLogin}/>
