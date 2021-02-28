@@ -2,7 +2,7 @@ import React from 'react';
 import {compose} from "redux";
 import store from "./redux/reduxStore";
 import {connect, Provider} from "react-redux";
-import {BrowserRouter, Route, withRouter} from 'react-router-dom';
+import {HashRouter, Route, withRouter} from 'react-router-dom';
 import {initializeApp} from "./redux/appReducer";
 import PageHome from './Pages/Home/PageHome';
 import PageStream from './Pages/Stream/PageStream';
@@ -53,11 +53,11 @@ const AppContainer = compose(
 
 const AppMain = (props) => {
     return (
-        <BrowserRouter>
+        <HashRouter>
             <Provider store={ store }>
                 <AppContainer />
             </Provider>,
-        </BrowserRouter>
+        </HashRouter>
     )
 }
 
