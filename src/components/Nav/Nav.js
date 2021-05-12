@@ -19,6 +19,9 @@ const Nav = () => {
                 <li>
                     <NavLink to="/users">Users</NavLink>
                 </li>
+                <li>
+                    <NavLink to="/profile">Profile</NavLink>
+                </li>
             </ul>
         </div>
     )
