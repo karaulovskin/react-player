@@ -5,6 +5,7 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  letter-spacing: .04rem;
 }
 
 code {
@@ -19,7 +20,7 @@ code {
 html {
     width: 100%;
     height: 100vh;
-    font-size: 12px;
+    font-size: 14px;
 }
 
 body {
