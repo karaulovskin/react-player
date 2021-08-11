@@ -56,7 +56,7 @@ const AppMain = (props) => {
         <HashRouter>
             <Provider store={ store }>
                 <AppContainer />
-            </Provider>,
+            </Provider>
         </HashRouter>
     )
 }

@@ -1,15 +1,31 @@
-import styled from 'styled-components';
+import styled, { css } from 'styled-components';
 
 export const Root = styled.div`
-  display: flex;
+
 `;
 
 export const Row = styled.div`
   display: flex;
   justify-content: space-between;
   width: 100%;
-  margin-bottom: .5rem;
-  background: #303738;
+  color: #8c8c8c;
+  ${({ background, uppercase }) => css`
+    ${background &&
+      css`
+        background: #303738;
+      `
+    }
+    ${uppercase &&
+      css`
+        text-transform: uppercase;
+        font-weight: 600;
+        font-size: 12px;
+      `
+    }
+  `}
+  &:not(:last-child) {
+    margin-bottom: .5rem;
+  }
 `;
 
 export const Col = styled.div`
@@ -22,7 +38,6 @@ export const Col = styled.div`
   &:nth-child(1) {
     width: 55px;
     min-width: 55px;
-    height: 55px;
   }
   img {
     width: 100%;
@@ -32,9 +47,9 @@ export const Col = styled.div`
 
 export const TitlePrimary = styled.span`
   font-weight: 700;
+  color: white;
 `;
 
 export const TitleRemixed = styled.span`
   margin-left: .5em;
-  color: #8c8c8c;
 `;

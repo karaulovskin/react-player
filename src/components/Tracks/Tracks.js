@@ -31,25 +31,27 @@ const tracks = [
   },
 ];
 
-
-const list = tracks.map((
-  {
-    id,
-    titlePrimary,
-    titleRemixed,
-    trackArtists,
-    trackGenres,
-    trackTime,
-    trackKey,
-    trackBpm,
-    trackLabel,
-    trackReleased,
-    trackBuy,
-  }) =>
-  <Root key={id}>
-    <Row>
+const Tracks = () => {
+  const list = tracks.map((
+    {
+      id,
+      titlePrimary,
+      titleRemixed,
+      trackArtists,
+      trackGenres,
+      trackTime,
+      trackKey,
+      trackBpm,
+      trackLabel,
+      trackReleased,
+      trackBuy,
+    }) =>
+    <Row
+      key={id}
+      background
+    >
       <Col>
-        <img src={ pic }  alt="Stephan Jolk"/>
+        <img src={pic} alt={trackArtists}/>
       </Col>
       <Col>
         <div>
@@ -90,14 +92,12 @@ const list = tracks.map((
         </div>
       </Col>
     </Row>
-  </Root>
-);
+  );
 
-const Tracks = () => {
   return (
-    <>
+    <Root>
       {list}
-    </>
+    </Root>
   )
 }
 
